@@ -4,6 +4,13 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -11,6 +18,8 @@ body {
     "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.6;
   direction: rtl;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* تحسينات إضافية للنصوص العربية */
@@ -57,16 +66,9 @@ button:hover {
 
 /* تحسين الصور */
 img {
-  transition: transform 0.3s ease;
-}
-
-img:hover {
-  transform: scale(1.02);
-}
-
-/* تحسين التمرير */
-html {
-  scroll-behavior: smooth;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* تحسين شريط التمرير */
@@ -145,5 +147,124 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* إصلاح مشاكل الصور */
+img[src*="placeholder"] {
+  object-fit: cover;
+}
+
+/* تحسين العناصر المتجاوبة */
+@media (max-width: 640px) {
+  .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* إصلاح التداخلات */
+.fixed {
+  z-index: 50;
+}
+
+/* تحسين الروابط في الوضع الداكن */
+.dark a:hover {
+  opacity: 0.8;
+}
+
+/* منع تجاوز المحتوى */
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+/* تحسين الأزرار */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* تحسين النماذج */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* إصلاح ارتفاع الشاشة الكامل */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* تحسين عرض الشريط الإخباري المتحرك */
+@keyframes scroll-news {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* تحسين التباعد في الشاشات الصغيرة */
+@media (max-width: 1024px) {
+  .lg\:col-span-2 {
+    grid-column: span 1 / span 1;
+  }
+
+  .lg\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+}
+
+/* إصلاح مشاكل الفيديو والصور */
+video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* تحسين عرض البطاقات */
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* تحسين الظلال */
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* تحسين الانتقالات للروابط */
+a {
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* تحسين عرض النماذج */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* تحسين الاستجابة للشاشات الكبيرة جداً */
+@media (min-width: 1536px) {
+  .max-w-7xl {
+    max-width: 80rem;
   }
 }
